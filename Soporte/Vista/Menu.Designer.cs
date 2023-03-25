@@ -34,10 +34,10 @@
             this.toolStripEx1 = new Syncfusion.Windows.Forms.Tools.ToolStripEx();
             this.ribbonControlAdv1 = new Syncfusion.Windows.Forms.Tools.RibbonControlAdv();
             this.toolStripTabItem3 = new Syncfusion.Windows.Forms.Tools.ToolStripTabItem();
-            this.toolStripTabItem4 = new Syncfusion.Windows.Forms.Tools.ToolStripTabItem();
-            this.toolStripTabItem1 = new Syncfusion.Windows.Forms.Tools.ToolStripTabItem();
             this.toolStripEx2 = new Syncfusion.Windows.Forms.Tools.ToolStripEx();
+            this.toolStripTabItem4 = new Syncfusion.Windows.Forms.Tools.ToolStripTabItem();
             this.toolStripEx3 = new Syncfusion.Windows.Forms.Tools.ToolStripEx();
+            this.toolStripTabItem1 = new Syncfusion.Windows.Forms.Tools.ToolStripTabItem();
             this.toolStripEx4 = new Syncfusion.Windows.Forms.Tools.ToolStripEx();
             this.UsuariosToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.ClientesToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -47,10 +47,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControlAdv1)).BeginInit();
             this.ribbonControlAdv1.SuspendLayout();
             this.toolStripTabItem3.Panel.SuspendLayout();
-            this.toolStripTabItem4.Panel.SuspendLayout();
-            this.toolStripTabItem1.Panel.SuspendLayout();
             this.toolStripEx2.SuspendLayout();
+            this.toolStripTabItem4.Panel.SuspendLayout();
             this.toolStripEx3.SuspendLayout();
+            this.toolStripTabItem1.Panel.SuspendLayout();
             this.toolStripEx4.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -116,7 +116,7 @@
             this.ribbonControlAdv1.QuickPanelImageLayout = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ribbonControlAdv1.RibbonHeaderImage = Syncfusion.Windows.Forms.Tools.RibbonHeaderImage.None;
             this.ribbonControlAdv1.RibbonStyle = Syncfusion.Windows.Forms.Tools.RibbonStyle.Office2016;
-            this.ribbonControlAdv1.SelectedTab = this.toolStripTabItem4;
+            this.ribbonControlAdv1.SelectedTab = this.toolStripTabItem1;
             this.ribbonControlAdv1.ShowRibbonDisplayOptionButton = true;
             this.ribbonControlAdv1.Size = new System.Drawing.Size(781, 152);
             this.ribbonControlAdv1.SystemText.QuickAccessDialogDropDownName = "Start menu";
@@ -143,39 +143,6 @@
             this.toolStripTabItem3.Size = new System.Drawing.Size(78, 30);
             this.toolStripTabItem3.Text = "Usuarios";
             // 
-            // toolStripTabItem4
-            // 
-            this.toolStripTabItem4.Font = new System.Drawing.Font("Mongolian Baiti", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripTabItem4.Name = "toolStripTabItem4";
-            // 
-            // ribbonControlAdv1.ribbonPanel2
-            // 
-            this.toolStripTabItem4.Panel.Controls.Add(this.toolStripEx3);
-            this.toolStripTabItem4.Panel.Name = "ribbonPanel2";
-            this.toolStripTabItem4.Panel.ScrollPosition = 0;
-            this.toolStripTabItem4.Panel.TabIndex = 0;
-            this.toolStripTabItem4.Panel.Text = "Clientes";
-            this.toolStripTabItem4.Position = 1;
-            this.toolStripTabItem4.Size = new System.Drawing.Size(73, 30);
-            this.toolStripTabItem4.Text = "Clientes";
-            // 
-            // toolStripTabItem1
-            // 
-            this.toolStripTabItem1.Font = new System.Drawing.Font("Mongolian Baiti", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripTabItem1.Name = "toolStripTabItem1";
-            // 
-            // ribbonControlAdv1.ribbonPanel3
-            // 
-            this.toolStripTabItem1.Panel.Controls.Add(this.toolStripEx4);
-            this.toolStripTabItem1.Panel.Name = "ribbonPanel3";
-            this.toolStripTabItem1.Panel.ScrollPosition = 0;
-            this.toolStripTabItem1.Panel.TabIndex = 2;
-            this.toolStripTabItem1.Panel.Text = "Servicios";
-            this.toolStripTabItem1.Position = 2;
-            this.toolStripTabItem1.Size = new System.Drawing.Size(80, 30);
-            this.toolStripTabItem1.Tag = "1";
-            this.toolStripTabItem1.Text = "Servicios";
-            // 
             // toolStripEx2
             // 
             this.toolStripEx2.Dock = System.Windows.Forms.DockStyle.None;
@@ -193,6 +160,22 @@
             this.toolStripEx2.Size = new System.Drawing.Size(75, 86);
             this.toolStripEx2.TabIndex = 0;
             // 
+            // toolStripTabItem4
+            // 
+            this.toolStripTabItem4.Font = new System.Drawing.Font("Mongolian Baiti", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripTabItem4.Name = "toolStripTabItem4";
+            // 
+            // ribbonControlAdv1.ribbonPanel2
+            // 
+            this.toolStripTabItem4.Panel.Controls.Add(this.toolStripEx3);
+            this.toolStripTabItem4.Panel.Name = "ribbonPanel2";
+            this.toolStripTabItem4.Panel.ScrollPosition = 0;
+            this.toolStripTabItem4.Panel.TabIndex = 0;
+            this.toolStripTabItem4.Panel.Text = "Clientes";
+            this.toolStripTabItem4.Position = 1;
+            this.toolStripTabItem4.Size = new System.Drawing.Size(73, 30);
+            this.toolStripTabItem4.Text = "Clientes";
+            // 
             // toolStripEx3
             // 
             this.toolStripEx3.Dock = System.Windows.Forms.DockStyle.None;
@@ -207,8 +190,25 @@
             this.toolStripEx3.Office12Mode = false;
             this.toolStripEx3.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.toolStripEx3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.toolStripEx3.Size = new System.Drawing.Size(104, 86);
+            this.toolStripEx3.Size = new System.Drawing.Size(73, 86);
             this.toolStripEx3.TabIndex = 0;
+            // 
+            // toolStripTabItem1
+            // 
+            this.toolStripTabItem1.Font = new System.Drawing.Font("Mongolian Baiti", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripTabItem1.Name = "toolStripTabItem1";
+            // 
+            // ribbonControlAdv1.ribbonPanel3
+            // 
+            this.toolStripTabItem1.Panel.Controls.Add(this.toolStripEx4);
+            this.toolStripTabItem1.Panel.Name = "ribbonPanel3";
+            this.toolStripTabItem1.Panel.ScrollPosition = 0;
+            this.toolStripTabItem1.Panel.TabIndex = 2;
+            this.toolStripTabItem1.Panel.Text = "Soporte";
+            this.toolStripTabItem1.Position = 2;
+            this.toolStripTabItem1.Size = new System.Drawing.Size(71, 30);
+            this.toolStripTabItem1.Tag = "1";
+            this.toolStripTabItem1.Text = "Soporte";
             // 
             // toolStripEx4
             // 
@@ -249,6 +249,7 @@
             this.ClientesToolStripButton.Size = new System.Drawing.Size(64, 69);
             this.ClientesToolStripButton.Text = "Clientes";
             this.ClientesToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.ClientesToolStripButton.Click += new System.EventHandler(this.ClientesToolStripButton_Click);
             // 
             // TicketsToolStripButton
             // 
@@ -286,14 +287,14 @@
             this.ribbonControlAdv1.PerformLayout();
             this.toolStripTabItem3.Panel.ResumeLayout(false);
             this.toolStripTabItem3.Panel.PerformLayout();
-            this.toolStripTabItem4.Panel.ResumeLayout(false);
-            this.toolStripTabItem4.Panel.PerformLayout();
-            this.toolStripTabItem1.Panel.ResumeLayout(false);
-            this.toolStripTabItem1.Panel.PerformLayout();
             this.toolStripEx2.ResumeLayout(false);
             this.toolStripEx2.PerformLayout();
+            this.toolStripTabItem4.Panel.ResumeLayout(false);
+            this.toolStripTabItem4.Panel.PerformLayout();
             this.toolStripEx3.ResumeLayout(false);
             this.toolStripEx3.PerformLayout();
+            this.toolStripTabItem1.Panel.ResumeLayout(false);
+            this.toolStripTabItem1.Panel.PerformLayout();
             this.toolStripEx4.ResumeLayout(false);
             this.toolStripEx4.PerformLayout();
             this.ResumeLayout(false);

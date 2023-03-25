@@ -216,7 +216,7 @@
             this.Controls.Add(this.CodigoTextBox);
             this.Controls.Add(this.label1);
             this.Name = "UsuariosForm";
-            this.Text = "UsuariosForm";
+            this.Text = "Usuarios";
             this.Load += new System.EventHandler(this.UsuariosForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.UsuariosDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();

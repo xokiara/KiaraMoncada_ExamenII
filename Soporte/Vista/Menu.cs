@@ -14,11 +14,16 @@ namespace Vista
         private void UsuariosToolStripButton_Click(object sender, EventArgs e)
         {
             UsuariosForm userForm = new UsuariosForm();
-            userForm.MdiParent = this;
+            //
             userForm.Show();
 
         }
 
-
+        private void ClientesToolStripButton_Click(object sender, EventArgs e)
+        {
+            ClientesForm clientesForm = new ClientesForm();
+            //
+            clientesForm.Show();
+        }
     }
 }
