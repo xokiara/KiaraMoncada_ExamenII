@@ -134,7 +134,6 @@ namespace Vista
                 cliente.FechaNacimiento = FechaNacimientoDateTimePicker.Value;
                 cliente.EstaActivo = EstaActivoCheckBox.Checked;
 
-                //Insertar en la base de datos
                 bool inserto = ClienteDB.Insertar(cliente);
                 if (inserto)
                 {
@@ -178,7 +177,6 @@ namespace Vista
         {
             if (ClientesDataGridView.SelectedRows.Count > 0)
             {
-                //Validar si desea elminar el registro
                 DialogResult resultado = MessageBox.Show("¿Está seguro de elminar el registro?", "Advertencia", MessageBoxButtons.YesNo);
 
                 if (resultado == DialogResult.Yes)
