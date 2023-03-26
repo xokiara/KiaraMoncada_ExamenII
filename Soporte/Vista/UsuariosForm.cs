@@ -25,6 +25,8 @@ namespace Vista
             NombreTextBox.Enabled = true;
             ContraseñaTextBox.Enabled = true;
             CorreoTextBox.Enabled = true;
+            RolComboBox.Enabled = true;
+            EstaActivoCheckBox.Enabled = true;
             GuardarButton.Enabled = true;
             CancelarButton.Enabled = true;
             ModificarButton.Enabled = false;
@@ -37,9 +39,12 @@ namespace Vista
             NombreTextBox.Enabled = false;
             ContraseñaTextBox.Enabled = false;
             CorreoTextBox.Enabled = false;
+            RolComboBox.Enabled = false;
+            EstaActivoCheckBox.Enabled = false;
             GuardarButton.Enabled = false;
             CancelarButton.Enabled = false;
             ModificarButton.Enabled = true;
+
         }
 
         private void LimpiarControles()
@@ -48,6 +53,8 @@ namespace Vista
             NombreTextBox.Clear();
             ContraseñaTextBox.Clear();
             CorreoTextBox.Clear();
+            RolComboBox.Text = "";
+            EstaActivoCheckBox.Checked = false;
 
         }
 
@@ -78,6 +85,8 @@ namespace Vista
                 NombreTextBox.Text = UsuariosDataGridView.CurrentRow.Cells["Nombre"].Value.ToString();
                 ContraseñaTextBox.Text = UsuariosDataGridView.CurrentRow.Cells["Contrasena"].Value.ToString();
                 CorreoTextBox.Text = UsuariosDataGridView.CurrentRow.Cells["Correo"].Value.ToString();
+                RolComboBox.Text = UsuariosDataGridView.CurrentRow.Cells["Rol"].Value.ToString();
+                EstaActivoCheckBox.Checked = Convert.ToBoolean(UsuariosDataGridView.CurrentRow.Cells["EstaActivo"].Value);
 
                 HabilitarControles();
             }
@@ -113,11 +122,20 @@ namespace Vista
                     return;
                 }
                 errorProvider1.Clear();
+                if (string.IsNullOrEmpty(RolComboBox.Text))
+                {
+                    errorProvider1.SetError(RolComboBox, "Seleccione un rol");
+                    RolComboBox.Focus();
+                    return;
+                }
+                errorProvider1.Clear();
 
                 user.CodigoUsuario = CodigoTextBox.Text;
                 user.Nombre = NombreTextBox.Text;
                 user.Contraseña = ContraseñaTextBox.Text;
+                user.Rol = RolComboBox.Text;
                 user.Correo = CorreoTextBox.Text;
+                user.EstaActivo = EstaActivoCheckBox.Checked;
 
                 bool inserto = UsuarioDB.Insertar(user);
                 if (inserto)
@@ -138,7 +156,9 @@ namespace Vista
                 user.CodigoUsuario = CodigoTextBox.Text;
                 user.Nombre = NombreTextBox.Text;
                 user.Contraseña = ContraseñaTextBox.Text;
+                user.Rol = RolComboBox.Text;
                 user.Correo = CorreoTextBox.Text;
+                user.EstaActivo = EstaActivoCheckBox.Checked;
 
                 bool modifico = UsuarioDB.Editar(user);
                 if (modifico)

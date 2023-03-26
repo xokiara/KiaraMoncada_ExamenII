@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Datos;
+using Entidades;
+using System;
 using System.Windows.Forms;
 
 namespace Vista
@@ -30,12 +32,36 @@ namespace Vista
             }
             errorProvider1.Clear();
 
-            //BASEDATOS
+            Login login = new Login(UsuarioTextBox.Text, ContraseñaTextBox.Text);
+            Usuario usuario = new Usuario();
+            UsuarioDB usuarioDB = new UsuarioDB();
 
-            Menu menu = new Menu();
-            this.Hide();
-            menu.Show();
+            usuario = usuarioDB.Autenticar(login);
 
+            if (usuario != null)
+            {
+                if (usuario.EstaActivo)
+                {
+                    System.Security.Principal.GenericIdentity identidad = new System.Security.Principal.GenericIdentity(usuario.CodigoUsuario);
+                    System.Security.Principal.GenericPrincipal principal = new System.Security.Principal.GenericPrincipal(identidad, new string[] { usuario.Rol });
+                    System.Threading.Thread.CurrentPrincipal = principal;
+
+                    Menu menuFormulario = new Menu();
+                    this.Hide();
+                    menuFormulario.Show();
+                }
+                else
+                {
+                    MessageBox.Show("El usuario no esta activo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+
+            }
+            else
+            {
+                MessageBox.Show("Datos de usuario incorrectos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
         private void CancelarButton_Click(object sender, System.EventArgs e)

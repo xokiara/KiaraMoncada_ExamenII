@@ -27,6 +27,7 @@ namespace Vista
             CorreoTextBox.Enabled = true;
             DireccionTextBox.Enabled = true;
             FechaNacimientoDateTimePicker.Enabled = true;
+            EstaActivoCheckBox.Enabled = true;
             GuardarButton.Enabled = true;
             CancelarButton.Enabled = true;
             ModificarButton.Enabled = false;
@@ -40,6 +41,7 @@ namespace Vista
             CorreoTextBox.Enabled = false;
             DireccionTextBox.Enabled = false;
             FechaNacimientoDateTimePicker.Enabled = false;
+            EstaActivoCheckBox.Enabled = false;
             GuardarButton.Enabled = false;
             CancelarButton.Enabled = false;
             ModificarButton.Enabled = true;
@@ -52,6 +54,7 @@ namespace Vista
             TelefonoTextBox.Clear();
             CorreoTextBox.Clear();
             DireccionTextBox.Clear();
+            EstaActivoCheckBox.Checked = false;
         }
 
         private void NuevoButton_Click(object sender, EventArgs e)
@@ -72,6 +75,7 @@ namespace Vista
                 CorreoTextBox.Text = ClientesDataGridView.CurrentRow.Cells["Correo"].Value.ToString();
                 DireccionTextBox.Text = ClientesDataGridView.CurrentRow.Cells["Direccion"].Value.ToString();
                 FechaNacimientoDateTimePicker.Value = Convert.ToDateTime(ClientesDataGridView.CurrentRow.Cells["FechaNacimiento"].Value);
+                EstaActivoCheckBox.Checked = Convert.ToBoolean(ClientesDataGridView.CurrentRow.Cells["EstaActivo"].Value);
 
                 HabilitarControles();
             }
@@ -128,6 +132,7 @@ namespace Vista
                 cliente.Correo = CorreoTextBox.Text;
                 cliente.Direccion = DireccionTextBox.Text;
                 cliente.FechaNacimiento = FechaNacimientoDateTimePicker.Value;
+                cliente.EstaActivo = EstaActivoCheckBox.Checked;
 
                 //Insertar en la base de datos
                 bool inserto = ClienteDB.Insertar(cliente);
@@ -152,6 +157,7 @@ namespace Vista
                 cliente.Correo = CorreoTextBox.Text;
                 cliente.Direccion = DireccionTextBox.Text;
                 cliente.FechaNacimiento = FechaNacimientoDateTimePicker.Value;
+                cliente.EstaActivo = EstaActivoCheckBox.Checked;
 
                 bool modifico = ClienteDB.Editar(cliente);
                 if (modifico)
@@ -211,5 +217,7 @@ namespace Vista
 
             ClientesDataGridView.DataSource = dt;
         }
+
+
     }
 }

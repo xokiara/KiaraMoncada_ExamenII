@@ -32,17 +32,17 @@
             this.miniToolStrip = new Syncfusion.Windows.Forms.Tools.ToolStripEx();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripEx1 = new Syncfusion.Windows.Forms.Tools.ToolStripEx();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.ribbonControlAdv1 = new Syncfusion.Windows.Forms.Tools.RibbonControlAdv();
             this.toolStripTabItem3 = new Syncfusion.Windows.Forms.Tools.ToolStripTabItem();
             this.toolStripEx2 = new Syncfusion.Windows.Forms.Tools.ToolStripEx();
+            this.UsuariosToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripTabItem4 = new Syncfusion.Windows.Forms.Tools.ToolStripTabItem();
             this.toolStripEx3 = new Syncfusion.Windows.Forms.Tools.ToolStripEx();
+            this.ClientesToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripTabItem1 = new Syncfusion.Windows.Forms.Tools.ToolStripTabItem();
             this.toolStripEx4 = new Syncfusion.Windows.Forms.Tools.ToolStripEx();
-            this.UsuariosToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.ClientesToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.TicketsToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripEx1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControlAdv1)).BeginInit();
             this.ribbonControlAdv1.SuspendLayout();
@@ -91,6 +91,16 @@
             this.toolStripEx1.Office12Mode = false;
             this.toolStripEx1.Size = new System.Drawing.Size(82, 55);
             this.toolStripEx1.TabIndex = 0;
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 52);
+            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // ribbonControlAdv1
             // 
@@ -160,6 +170,18 @@
             this.toolStripEx2.Size = new System.Drawing.Size(75, 86);
             this.toolStripEx2.TabIndex = 0;
             // 
+            // UsuariosToolStripButton
+            // 
+            this.UsuariosToolStripButton.Font = new System.Drawing.Font("Mongolian Baiti", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UsuariosToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("UsuariosToolStripButton.Image")));
+            this.UsuariosToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.UsuariosToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.UsuariosToolStripButton.Name = "UsuariosToolStripButton";
+            this.UsuariosToolStripButton.Size = new System.Drawing.Size(66, 69);
+            this.UsuariosToolStripButton.Text = "Usuarios";
+            this.UsuariosToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.UsuariosToolStripButton.Click += new System.EventHandler(this.UsuariosToolStripButton_Click);
+            // 
             // toolStripTabItem4
             // 
             this.toolStripTabItem4.Font = new System.Drawing.Font("Mongolian Baiti", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -192,6 +214,18 @@
             this.toolStripEx3.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.toolStripEx3.Size = new System.Drawing.Size(73, 86);
             this.toolStripEx3.TabIndex = 0;
+            // 
+            // ClientesToolStripButton
+            // 
+            this.ClientesToolStripButton.Font = new System.Drawing.Font("Mongolian Baiti", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClientesToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("ClientesToolStripButton.Image")));
+            this.ClientesToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.ClientesToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ClientesToolStripButton.Name = "ClientesToolStripButton";
+            this.ClientesToolStripButton.Size = new System.Drawing.Size(64, 69);
+            this.ClientesToolStripButton.Text = "Clientes";
+            this.ClientesToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.ClientesToolStripButton.Click += new System.EventHandler(this.ClientesToolStripButton_Click);
             // 
             // toolStripTabItem1
             // 
@@ -227,30 +261,6 @@
             this.toolStripEx4.Size = new System.Drawing.Size(67, 86);
             this.toolStripEx4.TabIndex = 0;
             // 
-            // UsuariosToolStripButton
-            // 
-            this.UsuariosToolStripButton.Font = new System.Drawing.Font("Mongolian Baiti", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UsuariosToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("UsuariosToolStripButton.Image")));
-            this.UsuariosToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.UsuariosToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.UsuariosToolStripButton.Name = "UsuariosToolStripButton";
-            this.UsuariosToolStripButton.Size = new System.Drawing.Size(66, 69);
-            this.UsuariosToolStripButton.Text = "Usuarios";
-            this.UsuariosToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.UsuariosToolStripButton.Click += new System.EventHandler(this.UsuariosToolStripButton_Click);
-            // 
-            // ClientesToolStripButton
-            // 
-            this.ClientesToolStripButton.Font = new System.Drawing.Font("Mongolian Baiti", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ClientesToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("ClientesToolStripButton.Image")));
-            this.ClientesToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.ClientesToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.ClientesToolStripButton.Name = "ClientesToolStripButton";
-            this.ClientesToolStripButton.Size = new System.Drawing.Size(64, 69);
-            this.ClientesToolStripButton.Text = "Clientes";
-            this.ClientesToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.ClientesToolStripButton.Click += new System.EventHandler(this.ClientesToolStripButton_Click);
-            // 
             // TicketsToolStripButton
             // 
             this.TicketsToolStripButton.Font = new System.Drawing.Font("Mongolian Baiti", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -261,16 +271,7 @@
             this.TicketsToolStripButton.Size = new System.Drawing.Size(58, 69);
             this.TicketsToolStripButton.Text = "Tickets";
             this.TicketsToolStripButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 52);
-            this.toolStripButton1.Text = "toolStripButton1";
-            this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.TicketsToolStripButton.Click += new System.EventHandler(this.TicketsToolStripButton_Click);
             // 
             // Menu
             // 
@@ -278,8 +279,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(781, 361);
             this.Controls.Add(this.ribbonControlAdv1);
+            this.IsMdiContainer = true;
             this.Name = "Menu";
             this.Text = "Menu";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.toolStripEx1.ResumeLayout(false);
             this.toolStripEx1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControlAdv1)).EndInit();

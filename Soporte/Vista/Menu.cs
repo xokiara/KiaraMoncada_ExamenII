@@ -14,7 +14,7 @@ namespace Vista
         private void UsuariosToolStripButton_Click(object sender, EventArgs e)
         {
             UsuariosForm userForm = new UsuariosForm();
-            //
+            userForm.MdiParent = this;
             userForm.Show();
 
         }
@@ -22,8 +22,15 @@ namespace Vista
         private void ClientesToolStripButton_Click(object sender, EventArgs e)
         {
             ClientesForm clientesForm = new ClientesForm();
-            //
+            clientesForm.MdiParent = this;
             clientesForm.Show();
+        }
+
+        private void TicketsToolStripButton_Click(object sender, EventArgs e)
+        {
+            TicketForm ticketForm = new TicketForm();
+            ticketForm.MdiParent = this;
+            ticketForm.Show();
         }
     }
 }

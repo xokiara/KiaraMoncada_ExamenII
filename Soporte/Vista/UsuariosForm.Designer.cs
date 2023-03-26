@@ -44,6 +44,10 @@
             this.GuardarButton = new System.Windows.Forms.Button();
             this.ModificarButton = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.EstaActivoCheckBox = new System.Windows.Forms.CheckBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.RolComboBox = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.UsuariosDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -128,7 +132,7 @@
             // NuevoButton
             // 
             this.NuevoButton.Font = new System.Drawing.Font("Mongolian Baiti", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NuevoButton.Location = new System.Drawing.Point(134, 183);
+            this.NuevoButton.Location = new System.Drawing.Point(131, 262);
             this.NuevoButton.Name = "NuevoButton";
             this.NuevoButton.Size = new System.Drawing.Size(75, 26);
             this.NuevoButton.TabIndex = 26;
@@ -141,7 +145,7 @@
             this.UsuariosDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.UsuariosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.UsuariosDataGridView.Location = new System.Drawing.Point(0, 225);
+            this.UsuariosDataGridView.Location = new System.Drawing.Point(-1, 294);
             this.UsuariosDataGridView.Name = "UsuariosDataGridView";
             this.UsuariosDataGridView.Size = new System.Drawing.Size(708, 203);
             this.UsuariosDataGridView.TabIndex = 25;
@@ -150,7 +154,7 @@
             // 
             this.CancelarButton.Enabled = false;
             this.CancelarButton.Font = new System.Drawing.Font("Mongolian Baiti", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CancelarButton.Location = new System.Drawing.Point(455, 183);
+            this.CancelarButton.Location = new System.Drawing.Point(452, 262);
             this.CancelarButton.Name = "CancelarButton";
             this.CancelarButton.Size = new System.Drawing.Size(74, 26);
             this.CancelarButton.TabIndex = 24;
@@ -161,7 +165,7 @@
             // EliminarButton
             // 
             this.EliminarButton.Font = new System.Drawing.Font("Mongolian Baiti", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EliminarButton.Location = new System.Drawing.Point(375, 183);
+            this.EliminarButton.Location = new System.Drawing.Point(372, 262);
             this.EliminarButton.Name = "EliminarButton";
             this.EliminarButton.Size = new System.Drawing.Size(74, 26);
             this.EliminarButton.TabIndex = 23;
@@ -173,7 +177,7 @@
             // 
             this.GuardarButton.Enabled = false;
             this.GuardarButton.Font = new System.Drawing.Font("Mongolian Baiti", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GuardarButton.Location = new System.Drawing.Point(295, 183);
+            this.GuardarButton.Location = new System.Drawing.Point(292, 262);
             this.GuardarButton.Name = "GuardarButton";
             this.GuardarButton.Size = new System.Drawing.Size(74, 26);
             this.GuardarButton.TabIndex = 22;
@@ -184,7 +188,7 @@
             // ModificarButton
             // 
             this.ModificarButton.Font = new System.Drawing.Font("Mongolian Baiti", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ModificarButton.Location = new System.Drawing.Point(215, 183);
+            this.ModificarButton.Location = new System.Drawing.Point(212, 262);
             this.ModificarButton.Name = "ModificarButton";
             this.ModificarButton.Size = new System.Drawing.Size(74, 26);
             this.ModificarButton.TabIndex = 21;
@@ -196,11 +200,58 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // EstaActivoCheckBox
+            // 
+            this.EstaActivoCheckBox.AutoSize = true;
+            this.EstaActivoCheckBox.Enabled = false;
+            this.EstaActivoCheckBox.Location = new System.Drawing.Point(134, 226);
+            this.EstaActivoCheckBox.Name = "EstaActivoCheckBox";
+            this.EstaActivoCheckBox.Size = new System.Drawing.Size(15, 14);
+            this.EstaActivoCheckBox.TabIndex = 30;
+            this.EstaActivoCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Mongolian Baiti", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(33, 224);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(74, 14);
+            this.label6.TabIndex = 29;
+            this.label6.Text = "Esta Activo:";
+            // 
+            // RolComboBox
+            // 
+            this.RolComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.RolComboBox.Enabled = false;
+            this.RolComboBox.FormattingEnabled = true;
+            this.RolComboBox.Items.AddRange(new object[] {
+            "Administrador",
+            "Usuario"});
+            this.RolComboBox.Location = new System.Drawing.Point(134, 175);
+            this.RolComboBox.Name = "RolComboBox";
+            this.RolComboBox.Size = new System.Drawing.Size(272, 21);
+            this.RolComboBox.TabIndex = 28;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Mongolian Baiti", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(33, 183);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(31, 14);
+            this.label5.TabIndex = 27;
+            this.label5.Text = "Rol:";
+            // 
             // UsuariosForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(705, 426);
+            this.ClientSize = new System.Drawing.Size(705, 496);
+            this.Controls.Add(this.EstaActivoCheckBox);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.RolComboBox);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.NuevoButton);
             this.Controls.Add(this.UsuariosDataGridView);
             this.Controls.Add(this.CancelarButton);
@@ -242,5 +293,9 @@
         private System.Windows.Forms.Button GuardarButton;
         private System.Windows.Forms.Button ModificarButton;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.CheckBox EstaActivoCheckBox;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox RolComboBox;
+        private System.Windows.Forms.Label label5;
     }
 }

@@ -10,6 +10,7 @@ namespace Datos
     {
         string cadena = "server=localhost; user=root; database=soporte; password=valladaresk28";
 
+        //Método para insertar un registro
         public bool Insertar(Cliente cliente)
         {
             bool inserto = false;
@@ -17,7 +18,7 @@ namespace Datos
             {
                 StringBuilder sql = new StringBuilder();
                 sql.Append(" INSERT INTO cliente VALUES ");
-                sql.Append(" (@Identidad, @Nombre, @Telefono, @Correo, @Direccion, @FechaNacimiento); ");
+                sql.Append(" (@Identidad, @Nombre, @Telefono, @Correo, @Direccion, @FechaNacimiento, @EstaActivo); ");
 
                 using (MySqlConnection _conexion = new MySqlConnection(cadena))
                 {
@@ -31,6 +32,7 @@ namespace Datos
                         comando.Parameters.Add("@Correo", MySqlDbType.VarChar, 45).Value = cliente.Correo;
                         comando.Parameters.Add("@Direccion", MySqlDbType.VarChar, 100).Value = cliente.Direccion;
                         comando.Parameters.Add("@FechaNacimiento", MySqlDbType.DateTime).Value = cliente.FechaNacimiento;
+                        comando.Parameters.Add("@EstaActivo", MySqlDbType.Bit).Value = cliente.EstaActivo;
                         comando.ExecuteNonQuery();
                         inserto = true;
                     }
@@ -43,6 +45,7 @@ namespace Datos
 
         }
 
+        //Método para editar un registro
         public bool Editar(Cliente cliente)
         {
             bool edito = false;
@@ -50,7 +53,7 @@ namespace Datos
             {
                 StringBuilder sql = new StringBuilder();
                 sql.Append(" UPDATE cliente SET ");
-                sql.Append(" Identidad =  @Identidad, Nombre = @Nombre, Telefono = @Telefono, Correo = @Correo, Direccion = @Direccion, FechaNacimiento = @FechaNacimiento");
+                sql.Append(" Identidad =  @Identidad, Nombre = @Nombre, Telefono = @Telefono, Correo = @Correo, Direccion = @Direccion, FechaNacimiento = @FechaNacimiento, EstaActivo = @EstaActivo ");
                 sql.Append(" WHERE Identidad = @Identidad; ");
 
                 using (MySqlConnection _conexion = new MySqlConnection(cadena))
@@ -65,6 +68,7 @@ namespace Datos
                         comando.Parameters.Add("@Correo", MySqlDbType.VarChar, 45).Value = cliente.Correo;
                         comando.Parameters.Add("@Direccion", MySqlDbType.VarChar, 100).Value = cliente.Direccion;
                         comando.Parameters.Add("@FechaNacimiento", MySqlDbType.DateTime).Value = cliente.FechaNacimiento;
+                        comando.Parameters.Add("@EstaActivo", MySqlDbType.Bit).Value = cliente.EstaActivo;
                         comando.ExecuteNonQuery();
                         edito = true;
                     }
@@ -104,6 +108,7 @@ namespace Datos
             return elimino;
         }
 
+        //Método para visualizar a todos los clientes en el DVG
         public DataTable DevolverClientes()
         {
             DataTable dt = new DataTable();
@@ -129,6 +134,7 @@ namespace Datos
             return dt;
         }
 
+        //Método devolver cliente por Identidad
         public Cliente DevolverClientePorIdentidad(string identidad)
         {
             Cliente cliente = null;
@@ -155,6 +161,8 @@ namespace Datos
                             cliente.Correo = dr["Correo"].ToString();
                             cliente.Direccion = dr["Direccion"].ToString();
                             cliente.FechaNacimiento = Convert.ToDateTime(dr["FechaNacimiento"]);
+                            cliente.EstaActivo = Convert.ToBoolean(dr["EstaActivo"]);
+
                         }
                     }
                 }
@@ -165,6 +173,7 @@ namespace Datos
             return cliente;
         }
 
+        //Método devolver cliente por Nombre
         public DataTable DevolverClientesPorNombre(string nombre)
         {
             DataTable dt = new DataTable();
@@ -190,6 +199,7 @@ namespace Datos
             }
             return dt;
         }
+
 
     }
 }

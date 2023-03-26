@@ -10,9 +10,11 @@ namespace Datos
     {
         string cadena = "server=localhost; user=root; database=soporte; password=valladaresk28";
 
+        //Método para devolver una clase usuario
         public Usuario Autenticar(Login login)
         {
             Usuario user = null;
+            //Sentencia para manejar errores
             try
             {
                 StringBuilder sql = new StringBuilder();
@@ -37,8 +39,9 @@ namespace Datos
                             user.Nombre = dr["Nombre"].ToString();
                             user.Contraseña = dr["Contrasena"].ToString();
                             user.Correo = dr["Correo"].ToString();
+                            user.Rol = dr["Rol"].ToString();
                             user.FechaCreacion = Convert.ToDateTime(dr["FechaCreacion"]);
-
+                            user.EstaActivo = Convert.ToBoolean(dr["EstaActivo"]);
                         }
                     }
                 }
@@ -50,6 +53,7 @@ namespace Datos
             return user;
         }
 
+        //Método para insertar un registro
         public bool Insertar(Usuario user)
         {
             bool inserto = false;
@@ -57,7 +61,7 @@ namespace Datos
             {
                 StringBuilder sql = new StringBuilder();
                 sql.Append(" INSERT INTO usuario VALUES ");
-                sql.Append(" (@CodigoUsuario, @Nombre, @Contrasena, @Correo, @FechaCreacion); ");
+                sql.Append(" (@CodigoUsuario, @Nombre, @Contrasena, @Correo, @Rol, @FechaCreacion, @EstaActivo); ");
 
                 using (MySqlConnection _conexion = new MySqlConnection(cadena))
                 {
@@ -69,8 +73,10 @@ namespace Datos
                         comando.Parameters.Add("@Nombre", MySqlDbType.VarChar, 50).Value = user.Nombre;
                         comando.Parameters.Add("@Contrasena", MySqlDbType.VarChar, 80).Value = user.Contraseña;
                         comando.Parameters.Add("@Correo", MySqlDbType.VarChar, 45).Value = user.Correo;
+                        comando.Parameters.Add("@Rol", MySqlDbType.VarChar, 20).Value = user.Rol;
                         comando.Parameters.Add("@FechaCreacion", MySqlDbType.DateTime).Value = user.FechaCreacion;
-                        comando.ExecuteNonQuery();
+                        comando.Parameters.Add("@EstaActivo", MySqlDbType.Bit).Value = user.EstaActivo;
+                        comando.ExecuteNonQuery();//No devuelve ningún registro
                         inserto = true;
                     }
                 }
@@ -89,7 +95,7 @@ namespace Datos
             {
                 StringBuilder sql = new StringBuilder();
                 sql.Append(" UPDATE usuario SET ");
-                sql.Append(" Nombre =  @Nombre, Contrasena = @Contrasena, Correo = @Correo");
+                sql.Append(" Nombre =  @Nombre, Contrasena = @Contrasena, Correo = @Correo, Rol = @Rol, EstaActivo = @EstaActivo ");
                 sql.Append(" WHERE CodigoUsuario = @CodigoUsuario; ");
 
                 using (MySqlConnection _conexion = new MySqlConnection(cadena))
@@ -102,6 +108,8 @@ namespace Datos
                         comando.Parameters.Add("@Nombre", MySqlDbType.VarChar, 50).Value = user.Nombre;
                         comando.Parameters.Add("@Contrasena", MySqlDbType.VarChar, 80).Value = user.Contraseña;
                         comando.Parameters.Add("@Correo", MySqlDbType.VarChar, 45).Value = user.Correo;
+                        comando.Parameters.Add("@Rol", MySqlDbType.VarChar, 20).Value = user.Rol;
+                        comando.Parameters.Add("@EstaActivo", MySqlDbType.Bit).Value = user.EstaActivo;
                         comando.ExecuteNonQuery();
                         edito = true;
                     }
