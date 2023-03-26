@@ -10,11 +10,9 @@ namespace Datos
     {
         string cadena = "server=localhost; user=root; database=soporte; password=valladaresk28";
 
-        //Método para devolver una clase usuario
         public Usuario Autenticar(Login login)
         {
             Usuario user = null;
-            //Sentencia para manejar errores
             try
             {
                 StringBuilder sql = new StringBuilder();
@@ -29,7 +27,6 @@ namespace Datos
                         comando.Parameters.Add("@CodigoUsuario", MySqlDbType.VarChar, 50).Value = login.CodigoUsuario;
                         comando.Parameters.Add("@Contrasena", MySqlDbType.VarChar, 80).Value = login.Contraseña;
 
-                        //Captura los registros
                         MySqlDataReader dr = comando.ExecuteReader();
                         if (dr.Read())
                         {
@@ -53,7 +50,6 @@ namespace Datos
             return user;
         }
 
-        //Método para insertar un registro
         public bool Insertar(Usuario user)
         {
             bool inserto = false;
@@ -76,7 +72,7 @@ namespace Datos
                         comando.Parameters.Add("@Rol", MySqlDbType.VarChar, 20).Value = user.Rol;
                         comando.Parameters.Add("@FechaCreacion", MySqlDbType.DateTime).Value = user.FechaCreacion;
                         comando.Parameters.Add("@EstaActivo", MySqlDbType.Bit).Value = user.EstaActivo;
-                        comando.ExecuteNonQuery();//No devuelve ningún registro
+                        comando.ExecuteNonQuery();
                         inserto = true;
                     }
                 }
@@ -137,7 +133,7 @@ namespace Datos
                     {
                         comando.CommandType = CommandType.Text;
                         comando.Parameters.Add("@CodigoUsuario", MySqlDbType.VarChar, 50).Value = codigoUsuario;
-                        comando.ExecuteNonQuery();//No devuelve ningún registro
+                        comando.ExecuteNonQuery();
                         elimino = true;
                     }
                 }

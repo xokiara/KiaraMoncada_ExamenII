@@ -6,18 +6,18 @@ using System.Text;
 
 namespace Datos
 {
-    public class ClienteDB
+    public class SoporteDB
     {
         string cadena = "server=localhost; user=root; database=soporte; password=valladaresk28";
 
-        public bool Insertar(Cliente cliente)
+        public bool Insertar(Soporte soporte)
         {
             bool inserto = false;
             try
             {
                 StringBuilder sql = new StringBuilder();
-                sql.Append(" INSERT INTO cliente VALUES ");
-                sql.Append(" (@Identidad, @Nombre, @Telefono, @Correo, @Direccion, @FechaNacimiento, @EstaActivo); ");
+                sql.Append(" INSERT INTO soporte VALUES ");
+                sql.Append(" (@Codigo, @Descripcion, @Precio, @EstaActivo); ");
 
                 using (MySqlConnection _conexion = new MySqlConnection(cadena))
                 {
@@ -25,13 +25,10 @@ namespace Datos
                     using (MySqlCommand comando = new MySqlCommand(sql.ToString(), _conexion))
                     {
                         comando.CommandType = CommandType.Text;
-                        comando.Parameters.Add("@Identidad", MySqlDbType.VarChar, 25).Value = cliente.Identidad;
-                        comando.Parameters.Add("@Nombre", MySqlDbType.VarChar, 50).Value = cliente.Nombre;
-                        comando.Parameters.Add("@Telefono", MySqlDbType.VarChar, 15).Value = cliente.Telefono;
-                        comando.Parameters.Add("@Correo", MySqlDbType.VarChar, 45).Value = cliente.Correo;
-                        comando.Parameters.Add("@Direccion", MySqlDbType.VarChar, 100).Value = cliente.Direccion;
-                        comando.Parameters.Add("@FechaNacimiento", MySqlDbType.DateTime).Value = cliente.FechaNacimiento;
-                        comando.Parameters.Add("@EstaActivo", MySqlDbType.Bit).Value = cliente.EstaActivo;
+                        comando.Parameters.Add("@Codigo", MySqlDbType.VarChar, 80).Value = soporte.Codigo;
+                        comando.Parameters.Add("@Descripcion", MySqlDbType.VarChar, 200).Value = soporte.Descripcion;
+                        comando.Parameters.Add("@Precio", MySqlDbType.Decimal).Value = soporte.Precio;
+                        comando.Parameters.Add("@EstaActivo", MySqlDbType.Bit).Value = soporte.EstaActivo;
                         comando.ExecuteNonQuery();
                         inserto = true;
                     }
@@ -44,15 +41,15 @@ namespace Datos
 
         }
 
-        public bool Editar(Cliente cliente)
+        public bool Editar(Soporte soporte)
         {
             bool edito = false;
             try
             {
                 StringBuilder sql = new StringBuilder();
-                sql.Append(" UPDATE cliente SET ");
-                sql.Append(" Identidad =  @Identidad, Nombre = @Nombre, Telefono = @Telefono, Correo = @Correo, Direccion = @Direccion, FechaNacimiento = @FechaNacimiento, EstaActivo = @EstaActivo ");
-                sql.Append(" WHERE Identidad = @Identidad; ");
+                sql.Append(" UPDATE soporte SET ");
+                sql.Append(" Descripcion =  @Descripcion, Precio = @Precio, EstaActivo = @EstaActivo ");
+                sql.Append(" WHERE Codigo = @Codigo; ");
 
                 using (MySqlConnection _conexion = new MySqlConnection(cadena))
                 {
@@ -60,13 +57,10 @@ namespace Datos
                     using (MySqlCommand comando = new MySqlCommand(sql.ToString(), _conexion))
                     {
                         comando.CommandType = CommandType.Text;
-                        comando.Parameters.Add("@Identidad", MySqlDbType.VarChar, 25).Value = cliente.Identidad;
-                        comando.Parameters.Add("@Nombre", MySqlDbType.VarChar, 50).Value = cliente.Nombre;
-                        comando.Parameters.Add("@Telefono", MySqlDbType.VarChar, 15).Value = cliente.Telefono;
-                        comando.Parameters.Add("@Correo", MySqlDbType.VarChar, 45).Value = cliente.Correo;
-                        comando.Parameters.Add("@Direccion", MySqlDbType.VarChar, 100).Value = cliente.Direccion;
-                        comando.Parameters.Add("@FechaNacimiento", MySqlDbType.DateTime).Value = cliente.FechaNacimiento;
-                        comando.Parameters.Add("@EstaActivo", MySqlDbType.Bit).Value = cliente.EstaActivo;
+                        comando.Parameters.Add("@Codigo", MySqlDbType.VarChar, 80).Value = soporte.Codigo;
+                        comando.Parameters.Add("@Descripcion", MySqlDbType.VarChar, 200).Value = soporte.Descripcion;
+                        comando.Parameters.Add("@Precio", MySqlDbType.Decimal).Value = soporte.Precio;
+                        comando.Parameters.Add("@EstaActivo", MySqlDbType.Bit).Value = soporte.EstaActivo;
                         comando.ExecuteNonQuery();
                         edito = true;
                     }
@@ -78,15 +72,14 @@ namespace Datos
             return edito;
         }
 
-
-        public bool Eliminar(string identidad)
+        public bool Eliminar(string codigo)
         {
             bool elimino = false;
             try
             {
                 StringBuilder sql = new StringBuilder();
-                sql.Append(" DELETE FROM cliente ");
-                sql.Append(" WHERE identidad = @identidad; ");
+                sql.Append(" DELETE FROM soporte ");
+                sql.Append(" WHERE Codigo = @Codigo; ");
 
                 using (MySqlConnection _conexion = new MySqlConnection(cadena))
                 {
@@ -94,8 +87,8 @@ namespace Datos
                     using (MySqlCommand comando = new MySqlCommand(sql.ToString(), _conexion))
                     {
                         comando.CommandType = CommandType.Text;
-                        comando.Parameters.Add("@identidad", MySqlDbType.VarChar, 25).Value = identidad;
-                        comando.ExecuteNonQuery();
+                        comando.Parameters.Add("@Codigo", MySqlDbType.VarChar, 80).Value = codigo;
+                        comando.ExecuteNonQuery();//No devuelve ningún registro
                         elimino = true;
                     }
                 }
@@ -106,13 +99,13 @@ namespace Datos
             return elimino;
         }
 
-        public DataTable DevolverClientes()
+        public DataTable DevolverSoporte()
         {
             DataTable dt = new DataTable();
             try
             {
                 StringBuilder sql = new StringBuilder();
-                sql.Append(" SELECT * FROM cliente ");
+                sql.Append(" SELECT * FROM soporte ");
 
                 using (MySqlConnection _conexion = new MySqlConnection(cadena))
                 {
@@ -131,14 +124,13 @@ namespace Datos
             return dt;
         }
 
-
-        public Cliente DevolverClientePorIdentidad(string identidad)
+        public Soporte DevolverSoportePorCodigo(string codigo)
         {
-            Cliente cliente = null;
+            Soporte soporte = null;
             try
             {
                 StringBuilder sql = new StringBuilder();
-                sql.Append(" SELECT * FROM cliente WHERE Identidad = @Identidad; ");
+                sql.Append(" SELECT * FROM soporte WHERE Codigo = @Codigo; ");
 
                 using (MySqlConnection _conexion = new MySqlConnection(cadena))
                 {
@@ -146,19 +138,16 @@ namespace Datos
                     using (MySqlCommand comando = new MySqlCommand(sql.ToString(), _conexion))
                     {
                         comando.CommandType = CommandType.Text;
-                        comando.Parameters.Add("@Identidad", MySqlDbType.VarChar, 25).Value = identidad;
+                        comando.Parameters.Add("@Codigo", MySqlDbType.VarChar, 80).Value = codigo;
                         MySqlDataReader dr = comando.ExecuteReader();
                         if (dr.Read())
                         {
-                            cliente = new Cliente();
+                            soporte = new Soporte();
 
-                            cliente.Identidad = identidad;
-                            cliente.Nombre = dr["Nombre"].ToString();
-                            cliente.Telefono = dr["Telefono"].ToString();
-                            cliente.Correo = dr["Correo"].ToString();
-                            cliente.Direccion = dr["Direccion"].ToString();
-                            cliente.FechaNacimiento = Convert.ToDateTime(dr["FechaNacimiento"]);
-                            cliente.EstaActivo = Convert.ToBoolean(dr["EstaActivo"]);
+                            soporte.Codigo = codigo;
+                            soporte.Descripcion = dr["Descripcion"].ToString();
+                            soporte.Precio = Convert.ToDecimal(dr["Precio"]);
+                            soporte.EstaActivo = Convert.ToBoolean(dr["EstaActivo"]);
 
                         }
                     }
@@ -167,16 +156,16 @@ namespace Datos
             catch (System.Exception ex)
             {
             }
-            return cliente;
+            return soporte;
         }
 
-        public DataTable DevolverClientesPorNombre(string nombre)
+        public DataTable DevolverSoportePorDescripcion(string descripcion)
         {
             DataTable dt = new DataTable();
             try
             {
                 StringBuilder sql = new StringBuilder();
-                sql.Append(" SELECT * FROM cliente WHERE Nombre LIKE ('%@Nombre%'); ");
+                sql.Append(" SELECT * FROM soporte WHERE Descripcion LIKE '%" + descripcion + "%'");
 
                 using (MySqlConnection _conexion = new MySqlConnection(cadena))
                 {
@@ -184,7 +173,6 @@ namespace Datos
                     using (MySqlCommand comando = new MySqlCommand(sql.ToString(), _conexion))
                     {
                         comando.CommandType = CommandType.Text;
-                        comando.Parameters.Add("@Nombre", MySqlDbType.VarChar, 50).Value = nombre;
                         MySqlDataReader dr = comando.ExecuteReader();
                         dt.Load(dr);
                     }
@@ -195,7 +183,5 @@ namespace Datos
             }
             return dt;
         }
-
-
     }
 }
